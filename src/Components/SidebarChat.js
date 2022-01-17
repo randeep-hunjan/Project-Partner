@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./SidebarChat.css";
 import { setChat } from "../features/chatSlice";
-// import database from "./firebase";
 import * as timeago from "timeago.js";
 import { database } from "../firebase";
 

@@ -6,14 +6,6 @@ import {database} from "../firebase"
 import { AuthContext } from '../Context/AuthContext'
 
 function Message() {
-//   const {id} = useParams()
-//   const [userData,setUserdata] = useState(null) 
-//   useEffect(()=>{
-//     database.users.doc(id).onSnapshot((snap)=>{
-//         setUserdata(snap.data())
-//     })
-//     console.log(userData)
-// },[id])
 const {user,logout} = useContext(AuthContext)
     const [userData,setUserData] = useState('')
     useEffect(()=>{

@@ -21,7 +21,7 @@ import { Link, useHistory } from 'react-router-dom';
 import {AuthContext} from '../Context/AuthContext'
 import {makeStyles} from '@mui/styles';
 import {useEffect} from 'react'
-import insta from '../Assets/Instagram.JPG';
+import insta from '../Assets/mainlogo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import SendIcon from '@mui/icons-material/Send';
 import ExploreIcon from '@mui/icons-material/Explore';
@@ -92,10 +92,6 @@ export default function Navbar({userData}) {
       await logout()
       history.push('/login')
   }
-  // const handleexplore = () => {
-  //     let win =window.open('https://www.pepcoding.com','_blank');
-  //     win.focus();
-  // }
 
   const handleRedirect = (event) => {
     history.push(`/profile/${event.target.value}`)
@@ -104,23 +100,6 @@ export default function Navbar({userData}) {
 
   const handleSearch=(event)=>{
       setCurr(event.target.value)
-      console.log(userData)
-      // var comp=database.users.orderBy('createdAt','desc').onSnapshot((querySnapshot)=>{
-      // querySnapshot.forEach((doc)=>{
-      //   console.log(doc.id)})
-      // })
-      // database().ref("users").on("value", snapshot => {
-      //   snapshot.forEach(snap => {
-      //   console.log(snap.val())})})
-    //   database.users.get().then((querySnapshot) => {
-    //     querySnapshot.forEach(element => {
-    //         var data = element.data();
-    //         setInfo(arr => [...arr , data]);  
-    //     });
-    // })
-    // console.log(info);
-    // setInfo([]);
-    // console.log(info);
     let parr=[]
     let narr=[]
     info.map((post,index)=>{
@@ -177,17 +156,6 @@ export default function Navbar({userData}) {
   );
 
   useEffect(()=>{
-    // let parr = []
-    // const unsub = database.posts.orderBy('createdAt','desc').onSnapshot((querySnapshot)=>{
-    //     parr = []
-    //     querySnapshot.forEach((doc)=>{
-    //         let data = {...doc.data(),postId:doc.id}
-    //         parr.push(data)
-    //     })
-    //     setPosts(parr)
-    // })
-    // return unsub
-     //   console.log(snap.val())})})
      database.users.get().then((querySnapshot) => {
       querySnapshot.forEach(element => {
           var data = element.data();
@@ -204,12 +172,6 @@ export default function Navbar({userData}) {
           <div style={{ marginLeft: '5%' }}>
             <img src={insta} style={{ width: '20vh' }} onClick={handlebannerclick} />
           </div>
-          {/* <div className='searchBar' style={{marginLeft:'50vh'}}>
-          <TextField
-          id="outlined-password-input"
-          label="Search"
-          fullWidth={true} margin="dense" size="small"
-        /> */}
           <div className="searchBar" style={{marginLeft:'clamp(5vw, 27vw, 100vw)'}}>
             <Button variant="outlined" onClick={handleClickOpen}>
               Click to search
@@ -234,15 +196,8 @@ export default function Navbar({userData}) {
                 <Button variant="outlined" fullWidth={true} value={id[index]} onClick={handleRedirect}>{name}</Button>  
                 )):<div></div>
                 }
-                {/* <Button variant="outlined" fullWidth={true}>Primary</Button>
-                <Button variant="outlined" fullWidth={true}>Primary</Button>
-                <Button variant="outlined" fullWidth={true}>Primary</Button> */}
                 </div>
               </div>
-              {/* <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleClose}>Subscribe</Button>
-              </DialogActions> */}
             </Dialog>
           </div>
         <Box sx={{ flexGrow: 1 }} />

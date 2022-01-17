@@ -10,18 +10,20 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 import './Login.css'
-import insta from '../Assets/Instagram.JPG'
+import insta from '../Assets/mainlogo.png'
 import TextField from '@mui/material/TextField';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {Link} from  'react-router-dom';
 import bg from '../Assets/insta.png'
-import img1 from '../Assets/img1.jpg';
-import img2 from '../Assets/img2.jpg';
-import img3 from '../Assets/img3.jpg';
-import img4 from '../Assets/img4.jpg';
-import img5 from '../Assets/img5.jpg';
+import img1 from '../Assets/ourchat.png';
+import img2 from '../Assets/leetcode.png';
+import img3 from '../Assets/feed.png';
 import { AuthContext } from '../Context/AuthContext';
 import { useHistory } from 'react-router-dom';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 export default function Login() {
     const store = useContext(AuthContext)
@@ -46,6 +48,25 @@ export default function Login() {
     const [loading,setLoading] = useState(false);
     const history = useHistory();
     const {login} = useContext(AuthContext);
+    const [values, setValues] = React.useState({
+        password: '',
+        showPassword: false,
+      });
+
+      const handleChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+      };
+
+      const handleClickShowPassword = () => {
+        setValues({
+          ...values,
+          showPassword: !values.showPassword,
+        });
+      };
+
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
 
     const handleClick = async() => {
         try{
@@ -55,7 +76,7 @@ export default function Login() {
             setLoading(false);
             history.push('/')
         }catch(err){
-            setError(err);
+            setError("Wrong Credentials");
             setTimeout(()=>{
                 setError('')
             },2000);
@@ -69,8 +90,7 @@ export default function Login() {
               <div className="car">
                 <CarouselProvider
                     visibleSlides={1}
-                    totalSlides={5}
-                    // step={3}
+                    totalSlides={3}
                     naturalSlideWidth={238}
                     naturalSlideHeight={423}
                     hasMasterSpinner
@@ -83,8 +103,6 @@ export default function Login() {
                     <Slide index={0}><Image src={img1}/></Slide>
                     <Slide index={1}><Image src={img2}/></Slide>
                     <Slide index={2}><Image src={img3}/></Slide>
-                    <Slide index={3}><Image src={img4}/></Slide>
-                    <Slide index={4}><Image src={img5}/></Slide>
                     </Slider>
                 </CarouselProvider>
               </div>
@@ -97,7 +115,16 @@ export default function Login() {
                 <CardContent>
                     {error!='' && <Alert severity="error">{error}</Alert>}
                     <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" size="small" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                    <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" size="small" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                    <TextField  type={values.showPassword ? 'text' : 'password'} value={values.password} onChange={handleChange('password')}  endAdornment={
+                    <InputAdornment position="end">
+                    <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end" >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>} id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" size="small" value={password} onChange={(e)=>setPassword(e.target.value)} />
                     <Typography className={classes.text2} color="primary" variant="subtitle1">
                         Forget Password ?
                     </Typography>

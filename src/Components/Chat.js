@@ -4,9 +4,7 @@ import { useSelector } from "react-redux";
 import "./Chat.css";
 import MicNoneIcon from "@material-ui/icons/MicNone";
 import Msg from "./Msg";
-// import { selectUser } from "./features/userSlice";
 import { selectChatName, selectChatId } from "../features/chatSlice";
-// import db from "./firebase";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import firebase from "firebase/compat/app";
@@ -15,7 +13,6 @@ import {database} from '../firebase';
 import { AuthContext } from '../Context/AuthContext'
 
 function Chat() {
-  // const user = useSelector(selectUser);
   const [input, setInput] = useState("");
   const chatName = useSelector(selectChatName);
   const chatId = useSelector(selectChatId);

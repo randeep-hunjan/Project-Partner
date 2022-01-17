@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {database} from '../firebase';
 import CircularProgress from '@mui/material/CircularProgress';
-import Video from './Video'
 import './Posts.css'
 import Avatar from '@mui/material/Avatar';
 import Like from './Like'
@@ -36,27 +35,6 @@ function Posts({userData}) {
         })
         return unsub
     },[])
-    // const callback = (entries) => {
-    //     entries.forEach((entry)=>{
-    //         let ele = entry.target.childNodes[0]
-    //         console.log(ele)
-    //         ele.play().then(()=>{
-    //             if(!ele.paused && !entry.isIntersecting){
-    //                 ele.pause()
-    //             }
-    //         })
-    //     })
-    // }
-    // let observer = new IntersectionObserver(callback, {threshold:0.6});
-    // useEffect(()=>{
-    //     const elements = document.querySelectorAll(".videos")
-    //     elements.forEach((element)=>{
-    //         observer.observe(element)
-    //     })
-    //     return ()=>{
-    //         observer.disconnect();
-    //     }
-    // },[posts])
     return (
         <div>
             {
@@ -66,12 +44,6 @@ function Posts({userData}) {
                         posts.map((post,index)=>(
                             <React.Fragment key={index}>
                                 {console.log(post)}
-                                {/* <div className="videos">
-                                    <Video src={post.pUrl} id={post.pId}/>
-                                    <div className="fa" style={{display:'flex'}}>
-                                        <Avatar src={post.uProfile} />
-                                        <h4>{post.uName}</h4>
-                                    </div> */}
                                     <div className="images">
                                         <div className="fa" >
                                           <Avatar src={post.uProfile} />
@@ -83,7 +55,6 @@ function Posts({userData}) {
                                             <img src={post.pUrl} id={post.pId} width="500" height="400"/>
                                         </div>
                                     
-                                    {/* </div> */}
                                         <div className="bottom-box"> 
                                             <Like userData={userData} postData={post}/>
                                             <ChatBubbleIcon className="chat-styling" onClick={()=>handleClickOpen(post.pId)}/>
@@ -97,11 +68,6 @@ function Posts({userData}) {
                                         maxWidth = 'md'
                                     >
                                         <div className="modal-container">
-                                            {/* <div className="video-modal">
-                                                <video autoPlay={true} muted="muted" controls>
-                                                    <source src={post.pUrl}/>
-                                                </video>
-                                            </div> */}
                                             <div className="img-modal">
                                                 <img src={post.pUrl} width="450" height="587"/>
                                             </div>

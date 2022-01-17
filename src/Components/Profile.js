@@ -60,20 +60,20 @@ function Profile() {
                             <Typography variant="h5" sx={{fontWeight: 'bold' }}>
                                 {userData.fullname} [{userData.expertAt}]
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" style={{ fontWeight: 600 }}>
                                 Email : {userData.email}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" style={{ fontWeight: 600 }}>
                                 Posts : {userData?.postIds?.length==undefined?"0":userData?.postIds?.length}
                             </Typography>
                             <Typography variant="h6">
-                                <a href= {userData.linkedin} target="_blank" >LinkedIn Profile</a>
+                                <a href= {userData.linkedin} target="_blank" style={{textDecoration:"none", fontWeight:"bold"}} >LinkedIn Profile</a>
                             </Typography>
                             <Typography variant="h6">
-                                <a href= {userData.leetcode} target="_blank" >Leetcode Profile</a>
+                                <a href= {userData.leetcode} target="_blank" style={{textDecoration:"none", fontWeight:"bold"}}>Leetcode Profile</a>
                             </Typography>
                             <Typography variant="h6">
-                                <a href= {userData.github} target="_blank" >Github Profile</a>
+                                <a href= {userData.github} target="_blank" style={{textDecoration:"none", fontWeight:"bold"}}>Github Profile</a>
                             </Typography>
                         </div>
                     </div>

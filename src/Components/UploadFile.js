@@ -8,7 +8,6 @@ import { database,storage } from '../firebase';
 import TextField from '@mui/material/TextField';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Box from '@mui/material/Box';
-//import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 const style = {
@@ -97,7 +96,6 @@ function UploadFile(props) {
                         setLoading(false)
                     })
                 })
-                // setLoading(false);
             }
     }
 
@@ -115,18 +113,6 @@ function UploadFile(props) {
                         >
                          <Box sx={style}>
                     <TextField id="outlined-basic" label="Type Content" variant="outlined" fullWidth={true} margin="dense" size="small" value={container} onChange={(e) => setContainer(e.target.value)} />
-                    {/* <input type="file" accept="image/*" value={photo} onChange={(e)=>setPhoto(e.target.value)} id="upload-input"  />
-                    <label htmlFor="upload-input">
-                        <Button
-                            variant="outlined"
-                            color="secondary"
-                            component="span"
-                            disabled={loading}
-                            onClick={()=>handleChange({photo})}
-                        >
-                        <MovieIcon/>&nbsp;Upload Post
-                        </Button>
-                    </label> */}
                      <Button color="secondary" fullWidth={true} variant="outlined" margin="dense" startIcon={<CloudUploadIcon />} component="label">
                             Upload Image
                             <input type="file" accept="image/*" hidden onChange={(e) => setFile(e.target.files[0])} />

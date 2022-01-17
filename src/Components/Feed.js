@@ -4,7 +4,7 @@ import { database } from '../firebase'
 import UploadFile from './UploadFile'
 import Posts from './Posts'
 import Navbar from './Navbar';
-import Message from './Message'
+
 function Feed() {
     const {user,logout} = useContext(AuthContext)
     const [userData,setUserData] = useState('')
@@ -20,7 +20,6 @@ function Feed() {
         <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
             <UploadFile user={userData}/>
             <Posts userData={userData}/>
-            {console.log({userData})}
         </div>
             
         </>
