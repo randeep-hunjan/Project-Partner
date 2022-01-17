@@ -118,7 +118,7 @@ export default function Signup() {
                     </div>
                     <CardContent>
                         <Typography className={classes.text1} variant="subtitle1">
-                            Sign up to see photos and videos from your friends
+                            Sign up to dive into developer's hub
                         </Typography>
                         {error != '' && <Alert severity="error">{error}</Alert>}
                         <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" size="small" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -139,9 +139,13 @@ export default function Signup() {
                                     label="Expertise"
                                     onChange={handleChange}
                                 >
-                                    <MenuItem value={"Front End Developer"}>Front End Developer</MenuItem>
-                                    <MenuItem value={"Back End Developer"}>Back End Developer</MenuItem>
+                                    <MenuItem value={"Front End Web Developer"}>Front End Web Developer</MenuItem>
+                                    <MenuItem value={"Back End Web Developer"}>Back End Web Developer</MenuItem>
                                     <MenuItem value={"Full Stack Developer"}>Full Stack Developer</MenuItem>
+                                    <MenuItem value={"Android Developer"}>Android Developer</MenuItem>
+                                    <MenuItem value={"Flutter Developer"}>Flutter Developer</MenuItem>
+                                    <MenuItem value={"Machine Learning Developer"}>Machine Learning Developer</MenuItem>
+                                    <MenuItem value={"Artificial Intelligence Developer"}>Artificial Intelligence Developer</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
